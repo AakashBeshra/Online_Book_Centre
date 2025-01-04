@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Products</title>
+  <style>
+    body {
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .price {
+      color: grey;
+      font-size: 22px;
+    }
+
+    .card button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .card button:hover {
+      opacity: 0.7;
+    }
+    p button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    p button:hover {
+      background-color: #0056b3;
+    }
+    p {
+    background-image: linear-gradient(to bottom, transform(transparent));
+    }
+    h1 {
+      background-image: linear-gradient(to right, rgb(20, 20, 20), rgb(37, 37, 37), rgb(51, 50, 50), rgb(82, 80, 80), white, rgb(82, 80, 80), rgb(51, 50, 50), rgb(37, 37, 37), rgb(20, 20, 20));
+      text-align: center;
+      color: #2b2a2a;
+    }
+    h2 {
+      background-image: linear-gradient(to bottom, transparent, transparent);
+      color: goldenrod;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    .nav_content button {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 14px;
+      background-image: linear-gradient(to right, rgb(71, 46, 1), rgb(126, 76, 2), rgb(187, 153, 4), rgb(240, 186, 8), rgb(243, 212, 74), rgb(240, 186, 8), rgb(187, 153, 4), rgb(126, 76, 2), rgb(71, 46, 1));
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .nav_content button:hover {
+      background-image: linear-gradient(to right, rgb(243, 212, 74), rgb(240, 186, 8), rgb(187, 153, 4), rgb(126, 76, 2), rgb(71, 46, 1), rgb(126, 76, 2), rgb(187, 153, 4), rgb(240, 186, 8), rgb(243, 212, 74));
+    }
+    .card {
+      perspective: 1000px;
+      display: inline-block;
+      margin: 20px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 300px;
+      height: 420px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgb(75, 74, 74), rgb(56, 56, 56), rgb(44, 44, 44), rgb(27, 27, 27), black, black);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-back-content {
+      padding: 20px;
+      background-image: linear-gradient(to bottom, rgb(75, 74, 74), rgb(56, 56, 56), rgb(44, 44, 44), rgb(27, 27, 27), black, black);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card button {
+      margin-top: 20px;
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: white;
+      background-color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .card button:hover {
+      opacity: 0.7;
+    }
+
+    marquee {
+      background-image: linear-gradient(to right, rgb(58, 2, 2), rgb(88, 2, 2), rgb(129, 2, 2), rgb(161, 4, 4), red, rgb(161, 4, 4), rgb(129, 2, 2), rgb(88, 2, 2), rgb(58, 2, 2));
+    }
+  </style>
+</head>
+<link rel="icon"href="logo.png"type="image/ico">
+<body background="Books_Photo.png">
+    <center>
+  <h2><font color="gold">Available Books</font></h2>
+  <div class="nav_content">
+    <button onclick="home()">HOME</button>
+</div>
+<script>
+  function home() {
+      window.location.assign("home.html")
+  }
+  function cse() {
+      window.location.assign("CSE.html")
+  } function eee() {
+      window.location.assign("EEE.html")
+  } function ece() {
+      window.location.assign("ECE.html")
+  } function mech() {
+      window.location.assign("MECH.html")
+  }
+  // Functions to start and stop the marquee
+  function stopMarquee() {
+      document.querySelector('.marquee').style.animationPlayState = 'paused';
+  }
+
+  function startMarquee() {
+      document.querySelector('.marquee').style.animationPlayState = 'running';
+  }
+</script>
+    </center>
+    <marquee onmouseover="stop()" onmouseout="start()" style="background-color: #000; color: #fff;"><h3>Disclaimer: This catalogue contains the books related to the following branches of Engineering (CSE, IT, ECE, EEE, MECH, CIVIL), hover the mouse pointer on the books to know more. Click on "View Item in Amazon.in" button behind the books to purchase them from Amazon.in</h3></marquee>
+    <hr>
+    <center>
+    <h1>CSE</h1>
+    <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Computer System Architecture.png" alt="Computer System Architecture" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Computer System Architecture 3rd Edition</h2>
+          <p class="price"><font color="gold">900 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Computer-System-Architecture-Update-Pearson/dp/9332585601/ref=sr_1_2?crid=3B1H83DOSFCL9&dib=eyJ2IjoiMSJ9.Ui5JB6LkMnEczkSYUBCKgm6BDXPe-DBHAgRV9XvPvVtfwMjI7NqYEEh6CI7o3BKemFMi_0ZdVrpMDvfsFYQcC1tsqA_CBkm0jSmiXX87LtS99s6nOkjVHxSphTYrqDjDRQTVU0_z4CtR01m5dA7ot6fHURjQb95K8RSv98xaVFIbX5ao7oeUbVpw0DXqzeh3rtcbDpcwMdSEXD77AcZQ9-gC-e18CjViEiLT6rEr1yc.-Lxl17gin0FEjRAm7KPdYoS5S5H_I3ogqFHS0sW-Qx8&dib_tag=se&keywords=computer+system+architecture+by+morris+mano&qid=1731472491&sprefix=Computer+System+Archite%2Caps%2C423&sr=8-2';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Let_Us_C.png" alt="Let Us C" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Let Us C 19th Edition</h2>
+          <p class="price"><font color="gold">319 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Let-Us-Authentic-programming-language/dp/9355512767/ref=sr_1_1?crid=7OLC1IXSO0N7&keywords=Let+us+C&qid=1701059169&sprefix=let+us+c+%2Caps%2C754&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Python_Crash_Course.png" alt="Python Crash Course" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Python Crash Course 2nd Edition</h2>
+          <p class="price"><font color="gold">680 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Python-Crash-Course-Eric-Matthes-ebook/dp/B07J4521M3/ref=sr_1_2?crid=27DXH6PVONE7&dib=eyJ2IjoiMSJ9.QV6OSAH0iYnQzSwQjkwYydxUfAw5SAthgITOSF37xyHMvMHixfw3BrJBrnWLH-kQR_CpfAecfoHliR-yI0_R1hmbNdxwU1rKXSQ1QPX8znfw8rwQIsiXGFMmkoMETzejrLt0Tt40WcQrVfgzS_K_x-u5SiX3J-ZBCvRRMbdjq7m9pBM5IP2NWJT5hX9Ty7ujVOq2HTCsIzBfF-S8A-YVaSggn6P9HrRAKMmhOFeO2LQ.4h7m35RharhvjYK23Si32Uu7L3sEfG3pw8EmFHNMuh8&dib_tag=se&keywords=Python+Crash+Course+2nd+edition&qid=1723970286&sprefix=python+crash+course+2nd+edition%2Caps%2C376&sr=8-2';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Java The Complete Reference.jpeg" alt="Java The Complete Reference" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Java The Complete Reference 13th Edition</h2>
+          <p class="price"><font color="gold">4500 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Java-Complete-Reference-Thirteenth/dp/1265058431/ref=sr_1_2?crid=2V4FR6O2QB6FL&dib=eyJ2IjoiMSJ9.Dx9lqycfcQdzNhxs3dwFJt-i4Y4vg7Rp_C26pnhQMb4hngB-GQzukjc0VIKrGMHq7pAgX4YAs8vWxuM8Is_Lr6PTRj66gDNVUoSVkcPC4Hwp_n1_OoWhESM-hgBtb3ZVu3h8yph5kWI1X9ZZfEpKwFEQa_8qUaoyvr9EU6ClOC4T_9Y7MRUHzy-QAB8FuhldHapsPonX_j-RRdKKKLuKCDAxyh7vUwKp_NoJPLqR9PA.jRZaDMgSW4yHi0LNcndFD62yQbIzstj9_k0Yg8nss8A&dib_tag=se&keywords=java+the+complete+reference+13th+edition&qid=1723540875&sprefix=Java+the+complete+reference+%2Caps%2C239&sr=8-2';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Statistics for Engineers and Scientists.jpg" alt="Statistics for Engineers and Scientists" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Statistics for Engineers and Scientists</h2>
+          <p class="price"><font color="gold">12508 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/STATISTICS-ENGINEERS-SCIENTISTS-William-Navidi/dp/1260547884/ref=sr_1_3?crid=16ZZ3P7YD0FBO&dib=eyJ2IjoiMSJ9.kSLg_qjnKRet4BdkqV0QiWQeL5AAeL5yAuyIJHh7gMD26q_o_ut4iYYxDiS_x0rdJ2lAizbUeh2WhNkQv9k0RZRgLLa23c8HYkoGxNWmj9H1V5Fh2R2Vmq61kUUlqzt6PA1s3nibv9vmhFTOYFM9JRrI--M4CW2si27Hz9lAwkzj9gMjgiZzmkHvSptILvZVo_xlnsxd8aqVxOcTch5wQB8R1geaT80oQSjBdfuukQ4.YAOBxPFQOBJBp51P81rYl2Vch5KvFzKwyyqhBj4-J4s&dib_tag=se&keywords=statistics+for+engineers+and+scientists+william+navidi&qid=1723796879&sprefix=statistics+for+engineers+and+scientists+william+navidi+%2Caps%2C211&sr=8-3';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>CSE(DS)</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Data_Structures_Algorithms.png" alt="Data Structures and Algorithms Made Easy" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Data Structures and Algorithms Made Easy 5th Edition</h2>
+          <p class="price"><font color="gold">1405 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Data-Structures-Algorithms-Made-Easy/dp/B0787DGGJR/ref=sr_1_17?crid=RECLL1JB70YR&keywords=Data+Structures+and+Algorithms+Made+Easy&qid=1700120137&sprefix=data+structures+and+algorithms+made+easy%2Caps%2C452&sr=8-17';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Pattern_Classification.png" alt="Pattern Classification" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Pattern Classification 2nd Edition</h2>
+          <p class="price"><font color="gold">1850 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Pattern-Classification-David-G-Stork-ebook/dp/B002LA09W6/ref=sr_1_3?crid=1GJC3MNAC8HVS&dib=eyJ2IjoiMSJ9.dqH4ue9m_DduJY4rPrVhb2xi2v-pFoe8S9yD0NGT8bxAvshW8Mrh-vWP6ZTW9-JzvcGgzfz1cHKPJ3HSSCAFnbwY2I9x06onS6F4FCua8eqadNVlmRUvfsG2m6I2cjOI3Zm1_mwh0UtmiSBj6ciUCLLhE8Dt5ls0KO87B_fmJK-kBRhfudr_feUCYXtdwRQTzAoEu1D2Fst5c3LsOoIBTzSm_okYPd4LTU2jvZyU7jc.52MStUg6YF55nimNBtTQj2rkDHKxoRm7xpxBFx-Lchw&dib_tag=se&keywords=Pattern+Classification&qid=1712239683&sprefix=patte%2Caps%2C1269&sr=8-3';"><font color="white">View Item in Amazon.in</font></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Fundamentals_of_Data_Visualization.png" alt="Fundamentals of Data Visualization" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Fundamentals of Data Visualization</h2>
+          <p class="price"><font color="gold">1500 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Fundamentals-Data-Visualization-Informative-Compelling/dp/9352138112/ref=sr_1_2?crid=IVI5PDD39ZF2&dib=eyJ2IjoiMSJ9.nyYhCLE4YuB-Y6s6V7Qu071DsHkpPUuxhyoR1HatI_q_Yol3cjHFmg4esTgCo6q2tiandUMo91OacajzTJH_qgeIhIrvPNYCUh6Mp4dSwdCEKzAUS7R3ZIdWgjxHBZhnanvWJU0gdYWFBs1szhM4D_nrmbaTDabjQWChWk7nCKZ1ocdX2qbgSPf68e6X8FcoYphaLklF0UgBSzp3CsAxS0E-OBjcynf82jVhsz7d80M.zRsVaPxCj6DGT_tViToUtxgSNCYAwHKyuHroXfPgKro&dib_tag=se&keywords=Fundamentals+of+Data+Visualization&qid=1712240236&sprefix=fundamentals+of+data+v%2Caps%2C2488&sr=8-2';"><font color="white">View Item in Amazon.in</font></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Deep_Learning.png" alt="Deep Learning" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Deep Learning</h2>
+          <p class="price"><font color="gold">2500 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Deep-Learning-Ian-Goodfellow/dp/0262035618/ref=sr_1_3?crid=1PUFUGHTQJXR8&dib=eyJ2IjoiMSJ9.-QSmxsYHtpMR-4y0EKnXe7vAHSObmbJSaZdDOCOQXhDYWa5HGyy7CpN3TEMhBr-z38KVrLREANPmcGH-mTSbpsPdHsL2iFgvXtPMl5TMtp2RKzqKaqeapzBnxmFFgHOnUHd-80cpKffnxGUgh-n0I741_9v_fKl33b4BL2BCaWtAH5BhfvZ0z9CHyP3qFu2uFgwTB6bmPXBBFYeN-k3StKjUpwFe2tKrgZsOOCDIlNM.8Mu9Kv299vq9HzAsmBVaxy7yGbzcbG0-z43KE2rHFVE&dib_tag=se&keywords=Deep+Learning&qid=1712240495&sprefix=deep+learn%2Caps%2C459&sr=8-3';"><font color="white">View Item in Amazon.in</font></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>CSE(AIML)</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Artificial_Intelligence.png" alt="Artificial Intelligence: A Modern Approach" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Artificial Intelligence: A Modern Approach</h2>
+          <p class="price"><font color="gold">3850 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Artificial-Intelligence-Modern-Approach-Global/dp/1292401133/ref=sr_1_5?crid=2B00MFPW7AWIO&keywords=Artificial+Intelligence%3A+A+Modern+Approach&qid=1700120342&sprefix=artificial+intelligence+a+modern+approach%2Caps%2C579&sr=8-5';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Machine_Learning_Python.png" alt="Machine Learning Engineering With Python" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Machine Learning Engineering With Python</h2>
+          <p class="price"><font color="gold">2648 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Machine-Learning-Engineering-Python-production/dp/1801079250/ref=sr_1_1_sspa?crid=2HN5DIVQLQ6G2&keywords=Machine+Learning+Engineering+With+Python&qid=1700120409&sprefix=machine+learning+engineering+with+python%2Caps%2C984&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>CSE(IOT)</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Exploring_raspberry_Pi.png" alt="Exploring Raspberry Pi" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Exploring Raspberry Pi</h2>
+          <p class="price"><font color="gold">2414 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Exploring-Raspberry-Pi-Interfacing-Embedded/dp/1119188687/ref=sr_1_1?crid=4B6J3N95340G&dib=eyJ2IjoiMSJ9.LWeKQi9o_PL9zyjrgSL2a2QmR5Nm3JyWJmVrWmrIG__7R5XV_Ey4vBhviSqyIWjC_REjLty-PpQKijful4692_PMAxB_NKLq63DAJBoKAX8ztqwzekkuP-qP3OfuKuWypSY0_qYfGPxiwyVvtVtuRp7GrCtyWbuTUhsPTL-NRnDpCgRknsUIhMJ0b7446eI74KdgvkymYl5VZS0NM7EbKnHvE1xTeKg4VfA9psZuYNU.z8-Yiwp105awrtiSwUPZ1_os7Q5Q5mc5c7lb04x8iRA&dib_tag=se&keywords=Exploring+Raspberry+Pi&qid=1711732471&sprefix=exploring+raspberry+p%2Caps%2C369&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>IT</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="The_Phoenix_Project.png" alt="The Phoenix Project" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>The Phoenix Project</h2>
+          <p class="price"><font color="gold">1678 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Phoenix-Project-Devops-Helping-Business/dp/1942788290/ref=sr_1_1?dib=eyJ2IjoiMSJ9.rW8fdRZbn5BdziZ8JIgmvvmf86LX160VQ27kg8qsjOULNHNK_wrjPtdyHsPSZ0EWdkFyW1mYYTbQQpx56J5OaHbt3eH_Sal21zc5f9tIcqO2Y9GyB1q0QtuX1lledXRMDJeZAtAp-oDyJImY_eV6IcXB328vPP-Q0x9lAm0RofbMSb-gGASWNel_w0IEGkjrMlK7GunKquVjdRcMMinsu-XYRTauQjyoGtFG357K6Mo.BePL8Emq1u3zcEH6iMjUWb9c-lqnhwAvyUdTr8X3Z-g&dib_tag=se&keywords=The+Phoenix+Project&qid=1711727167&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>ECE</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Modern_digital_and_analog_communication_systems.png" alt="Modern Digital and Analog Communication Systems" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Modern Digital and Analog Communication Systems</h2>
+          <p class="price"><font color="gold">560 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Modern-Digital-Analog-Communication-Systems/dp/0198073801/ref=sr_1_3?crid=2N9HDJWPQ40B&keywords=Modern+Digital+and+Analog+Communication+Systems&qid=1700120546&sprefix=modern+digital+and+analog+communication+systems%2Caps%2C509&sr=8-3';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>EEE</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Electrical_Engineering.png" alt="Electrical Engineering 101" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Electrical Engineering 101 3rd Edition</h2>
+          <p class="price"><font color="gold">2967 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Electrical-Engineering-101-Everything-Probably/dp/0123860016/ref=sr_1_1?crid=1TPRX5VJ3OGP6&keywords=Electrical+Engineering+101&qid=1700120495&sprefix=electrical+engineering+101%2Caps%2C636&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>MECH</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="To_Engineer_is_human.png" alt="To Engineer is Human" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>To Engineer is Human</h2>
+          <p class="price"><font color="gold">1189 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Engineer-Human-Failure-Successful-Design/dp/0679734163/ref=sr_1_1?crid=AWMWKI6RDRQT&keywords=To+Engineer+is+Human&qid=1700120608&sprefix=to+engineer+is+human%2Caps%2C436&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h1>CIVIL</h1>
+  <hr>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="Graphic_guide_to_frame_construction.png" alt="Graphic Guide to Frame Construction" style="width:100%">
+      </div>
+      <div class="card-back">
+        <div class="card-back-content">
+          <h2>Graphic Guide to Frame Construction 4th</h2>
+          <p class="price"><font color="gold">1812 INR</font></p>
+          <p><button onclick="window.location.href='https://www.amazon.in/Graphic-Guide-Frame-Construction-Pros/dp/163186372X/ref=sr_1_1?crid=L3N964A8ZEOB&dib=eyJ2IjoiMSJ9.er64rPPUzjj2hX6CUVZiT4JlVYEqSq7G3TnCe2XlTbLwwvVArkPphStRUK0e4qJXm_VWR6Yz6NqshxS7GmwVYyefvLVg3jLCcfa65JqVmucMI23jpmWRuWcZ84_f16S6WzeIYf8KvcATpEsCYd_Fmlz-shP1a5swmcl9PtvAZOY4IIureUdOhlYgMIUe2xHcAMS3ZlOCTXqiIZABHmj7_CRVTmx5ApjnEYPWjHYwqDY.p8mj6kTNmifv7EdKi0oaWmGbA6cU5BZLVJ98ntoYLOo&dib_tag=se&keywords=Graphic+Guide+to+Frame+Construction&qid=1711731503&sprefix=graphic+guide+to+frame+construction%2Caps%2C768&sr=8-1';"><font color="white">View Item in Amazon.in</font></button></p><br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  </center>
+</body>
+</html>
