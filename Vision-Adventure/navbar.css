@@ -1,0 +1,45 @@
+/* Navbar styles */
+.navbar {
+    background-color: #333; /* Navbar background color */
+    color: #fff; /* Text color */
+    padding: 10px 0; /* Padding for top and bottom */
+}
+
+.container {
+    max-width: 1200px; /* Max width of the container */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px; /* Font size of the logo */
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Logo color */
+}
+
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px; /* Spacing between menu items */
+}
+
+.nav-links li a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Menu item color */
+}
+
+.nav-links li a:hover {
+    color: #ffd700; /* Hover color */
+}
+
+/* Content styles */
+.content {
+    padding: 20px; /* Padding for content */
+}
