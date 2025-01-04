@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Vision Adventure</title>
+    <link rel="icon" href="C:\Users\admin\OneDrive\Desktop\Online Book Centre\Vision Adventure\logo.png" type="image/ico">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #29113f, #2d1d4e, #29113f); /give it a very nice violet shade/
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            color: #666;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Animation */
+        .animation {
+            animation: fadeIn 5s ease forwards;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Function to sample color from image and set it as background color
+        window.onload = function() {
+            var img = new Image();
+            img.src = 'logo.png';
+            img.onload = function() {
+                var vibrant = new Vibrant(img);
+                var swatches = vibrant.swatches();
+                var color = swatches.Vibrant.getHex();
+                document.body.style.backgroundColor = color;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="animation">
+        <img src= "logo.png" alt="Logo">
+    </div>
+    <footer>
+        <p>&copy; 2023 Vision Adventure. All rights reserved.</p>
+    </footer>
+    <script>
+        // Redirect after animation
+        setTimeout(function() {
+            window.location.href= "welcome.html";
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+</body>
+</html>
