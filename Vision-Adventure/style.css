@@ -1,0 +1,88 @@
+body {
+    overflow: none; 
+    background-image: url(Books_Photo.png);
+    background-size: cover;
+    font-family: Arial, sans-serif; /* Font family */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Set full viewport height */
+}
+
+    .nav_content {
+        padding-top: 23px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: relative;
+        border-radius: 5px; /* Add border radius for rounded corners */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    
+    .nav_content button {
+        font-size: 1em;
+        padding: 10px 20px;
+        background-color: transparent; /* Transparent background */
+        color: #fff; /* Text color */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Transition effect */
+    }
+    
+    .nav_content button:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background on hover */
+        border-radius: 5px; /* Add border radius for rounded corners on hover */
+    }
+    
+    
+    .dashboard{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 18vw;
+    position: fixed;
+    }
+    .dashboard button {
+        color: white;
+        background-image: linear-gradient(to right, rgb(1, 71, 1), rgb(2, 126, 2), rgb(4, 187, 4), rgb(8, 240, 8), rgb(74, 243, 74), rgb(8, 240, 8), rgb(4, 187, 4), rgb(2, 126, 2), rgb(1, 71, 1));
+        padding: 10px 20px; /* Padding */
+        margin: 10px; /* Margin */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Add border radius for rounded corners */
+        cursor: pointer; /* Cursor on hover */
+        font-size: 16px; /* Font size */
+        transition: background-color 0.3s ease; /* Transition effect */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    
+    .dashboard button:hover {
+        background-image: linear-gradient(to right, rgb(74, 243, 74), rgb(8, 240, 8), rgb(4, 187, 4), rgb(2, 126, 2), rgb(1, 71, 1), rgb(2, 126, 2), rgb(4, 187, 4), rgb(8, 240, 8), rgb(74, 243, 74));
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Hover shadow */
+    }
+    
+    
+    .navbar{
+    padding : 1em;
+    }
+    .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-image: linear-gradient(to right, #ffcc00, #ff6600, #ff3300, #666666);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    
+    .heading h1 {
+        font-size: 24px;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .heading img {
+        margin-right: 10px;
+    }
+    
