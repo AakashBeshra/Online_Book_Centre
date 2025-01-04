@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Welcome to the Library</title>
+  <link rel="icon" href="logo.png" type="image/ico">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-image: linear-gradient(to right, rgb(41, 40, 40), rgb(75, 73, 73), rgb(134, 132, 132), white, rgb(134, 132, 132), rgb(75, 73, 73), rgb(41, 40, 40));
+    }
+    canvas {
+      display: block;
+    }
+    @keyframes slideInUp {
+      0% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotateReverse {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes blinkReverse {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes rotateAndBlink {
+      0% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+    }
+    @keyframes rotateAndBlinkReverse {
+      0% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      50% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+    @keyframes blinkAndRotate {
+      0% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+      50% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
+    @keyframes blinkAndRotateReverse {
+      0% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotateAndBlinkAndRotate {
+      0% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+    }
+    @keyframes rotateAndBlinkAndRotateReverse {
+      0% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      50% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+    @keyframes blinkAndRotateAndRotate {
+      0% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+      50% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+    }
+    @keyframes blinkAndRotateAndRotateReverse {
+      0% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotateAndBlinkAndRotateAndRotate {
+      0% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      100% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+    }
+    @keyframes rotateAndBlinkAndRotateAndRotateReverse {
+      0% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+      50% {
+        transform: rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="animationCanvas"></canvas>
+
+<script>
+  // Get canvas element and context
+  var canvas = document.getElementById('animationCanvas');
+  var ctx = canvas.getContext('2d');
+
+  // Set canvas dimensions
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Set initial text properties
+  var text = 'Redirecting to Library Page...';
+  var fontSize = 36;
+  var posX = canvas.width / 2;
+  var posY = canvas.height / 2;
+  var alpha = 0;
+
+  // Set animation duration
+  var animationDuration = 2000; // 2 seconds
+
+  // Function to draw text
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+    ctx.fillStyle = 'rgba(0, 0, 255, ' + alpha + ')'; // Set text color to blue with opacity
+    ctx.font = fontSize + 'px Arial'; // Set font size and family
+    ctx.textAlign = 'center'; // Set text alignment
+    ctx.fillText(text, posX, posY); // Draw text at specified position
+  }
+
+  // Animation loop
+  var startTime = Date.now();
+  function animate() {
+    var currentTime = Date.now();
+    var elapsedTime = currentTime - startTime;
+
+    // Calculate alpha (opacity) based on elapsed time
+    alpha = Math.min(1, elapsedTime / animationDuration);
+
+    // Draw text with current opacity
+    draw();
+
+    // Continue animation until duration is reached
+    if (elapsedTime < animationDuration) {
+      requestAnimationFrame(animate);
+    } else {
+      // Redirect to index.html after animation duration
+      window.location.href = 'home.html';
+    }
+  }
+
+  // Start animation
+  animate();
+</script>
+
+</body>
+</html>
