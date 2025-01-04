@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Online Library</title>
+    <link rel="icon" href="logo.png" type="image/ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="cordova.js"></script>
+</head>
+
+<body background="home_background.png">
+<!-- Bootstrap Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" height="30" class="d-inline-block align-top" alt="">
+      Online Library
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="logout()">Logout</a> <!-- Logout button -->
+        </li>
+        <li class="nav-item">
+          <div class="search-icon" onmouseover="showSearchBox()" onmouseout="hideSearchBox()">
+            <i class="fas fa-search"></i> <!-- Search icon -->
+            <div class="search-box">
+              <input type="text" placeholder="Search...">
+              <button type="button">Search</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div>
+        <div class="navbar">
+            <div class="heading">
+                <h1><span>Online Library(Engineering)</span></h1>
+            </div>
+            <div class="nav_content">
+                <button onclick="home()">WELCOME PAGE</button>
+                <button onclick="a()">CATALOGUE</button>
+            </div>
+        </div>
+        <div class="dashboard"
+    background="Library_Books.png">
+    <button id="cse" onclick="cse()">CSE
+    </button>
+    <button id="IT" onclick="IT()">IT
+    </button>
+    <button id="ece" onclick="ece()">ECE
+    </button>
+    <button id="eee" onclick="eee()">EEE
+    </button>
+    <button id="mech" onclick="mech()">MECH
+    </button>
+    <button id="CIVIL" onclick="CIVIL()">CIVIL
+    </button>
+</div>
+</div>
+<script>
+function home() {
+    window.location.assign("welcome.html")
+}
+function a() {
+    window.location.assign("CATALOGUE.html")
+}
+function cse() {
+    window.location.assign("CSE.html")
+} function eee() {
+    window.location.assign("EEE.html")
+} function ece() {
+    window.location.assign("ECE.html")
+} function mech() {
+    window.location.assign("MECH.html")
+} function IT() {
+    window.location.assign("IT.html")
+} function CIVIL() {
+    window.location.assign("CIVIL.html")
+}
+
+// Function to show search box
+function showSearchBox() {
+  document.querySelector('.search-box').style.display = 'flex';
+}
+
+// Function to hide search box
+function hideSearchBox() {
+  document.querySelector('.search-box').style.display = 'none';
+}
+</script>
+<!-- Link to Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script>
+  // Function to handle logout
+  function logout() {
+    var confirmLogout = confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      localStorage.setItem('isLoggedIn', 'false'); // Set login status to false
+      // Redirect to login page or any other desired page
+      window.location.href = "welcome.html";
+    }
+  }
+</script>
+</body>
+<style>
+    body {
+        background-image: url(home_background.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow-y: 0; /* Add scrollbar for vertical overflow */
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        color: #333;
+        text-align: center;
+        animation: fadeIn 3s ease; /* Animation for fading in */
+      }
+    .dashboard {
+      margin-top: 0%;
+      text-align: center;
+      animation: slideInUp 2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 18vw;
+    }
+    .dashboard button {
+        color: white;
+        background-image: linear-gradient(to right, rgb(58, 2, 2), rgb(88, 2, 2), rgb(129, 2, 2), rgb(161, 4, 4), red, rgb(161, 4, 4), rgb(129, 2, 2), rgb(88, 2, 2), rgb(58, 2, 2));
+        padding: 10px 20px; /* Padding */
+        margin: 10px; /* Margin */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Add border radius for rounded corners */
+        cursor: pointer; /* Cursor on hover */
+        font-size: 16px; /* Font size */
+        transition: background-color 0.3s ease; /* Transition effect */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    .dashboard button:hover {
+      background-image: linear-gradient(to right, red, rgb(161, 4, 4), rgb(129, 2, 2), rgb(88, 2, 2), rgb(58, 2, 2), rgb(88, 2, 2), rgb(129, 2, 2), rgb(161, 4, 4), red);
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Hover shadow */
+    }
+    .heading {
+      color: whitesmoke;
+      font-size: 36px;
+      margin-top: 7%;
+      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: linear-gradient(to right, rgb(58, 2, 2), rgb(88, 2, 2), rgb(129, 2, 2), rgb(161, 4, 4), red, rgb(161, 4, 4), rgb(129, 2, 2), rgb(88, 2, 2), rgb(58, 2, 2));
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nav_content {
+      margin-top: 30px;
+      text-align: center;
+      animation: slideInUp 2s ease;
+      width: 100%;
+      padding-top: 0%;
+      padding-bottom: 0%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      position: relative;
+      border-radius: 5px; /* Add border radius for rounded corners */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+    .nav_content button {
+        width: 50%;
+        font-size: 1em;
+        padding: 10px 20px;
+        background-color: transparent; /* Transparent background */
+        color: #fff; /* Text color */
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Transition effect */
+    }
+    .nav_content button:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background on hover */
+        border-radius: 5px; /* Add border radius for rounded corners on hover */
+    }
+    .container {
+      margin-top: 100px;
+      text-align: center;
+      animation: slideInUp 2s ease; /* Animation for sliding up */
+    }
+    h1 {
+      color: #ffc107; /* Yellow color for heading */
+      font-size: 64px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+      padding: 14px 28px;
+      font-size: 24px;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
+      outline: 0;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .navbar {
+      background-color: rgba(0,0,0,0.8);
+      padding : 1em;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .dropdown-menu {
+      background-color: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .dropdown-item {
+      color: #fff;
+      font-size: 20px;
+    }
+    .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .navbar-toggler-icon {
+      background-color: #fff;
+    }
+    
+    /* Keyframe animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideInUp {
+      from {
+        transform: translateY(50px);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+    
+    /* Search icon */
+    .search-icon {
+      position: relative;
+    }
+
+    .search-icon i {
+      cursor: pointer;
+    }
+
+    .search-box {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-box input[type="text"] {
+      width: 150px;
+      padding: 5px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .search-box button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background-color: #0056b3;
+    }
+</style>
+</html>
